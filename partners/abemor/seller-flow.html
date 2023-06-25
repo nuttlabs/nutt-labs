@@ -5,10 +5,6 @@
 
         <style>
 
-            body {
-                width: 23160px;
-            }
-
         </style>
 
         <script type="module">
@@ -24,132 +20,134 @@
 
     </head>
     <body>
+        <div class="container">
+            <pre class="mermaid">
 
-        <pre class="mermaid">
+                flowchart TD
+                subgraph S01["New Seller Inquiry"]
+    S01_01["Customer submits inquiry"]:::trigger
+    --->S01_02["System finds or creates item: Customers"]:::airtableUpdate
+    --->S01_03["System creates item: Deals—Sellers"]:::airtableUpdate
+    --->S01_04["System sends: Inquiry-Received Email"]:::message
+    --->S01_05["System confirms opt-in; sends: Inquiry-Received Text"]:::message
+    --->S01_06["Deal Owner updates fields: Deal Owner, Item Appeal"]:::airtableUpdate
+    --->S01_07["Router"]:::router
 
-            flowchart LR
-            subgraph S01["New Seller Inquiry"]
-S01_01["Customer submits inquiry"]:::trigger
---->S01_02["System finds or creates item: Customers"]:::airtableUpdate
---->S01_03["System creates item: Deals—Sellers"]:::airtableUpdate
---->S01_04["System sends: Inquiry-Received Email"]:::message
---->S01_05["System confirms opt-in; sends: Inquiry-Received Text"]:::message
---->S01_06["Deal Owner updates fields: Deal Owner, Item Appeal"]:::airtableUpdate
---->S01_07["Router"]:::router
+    S01_07--->|Item is desirable|S01_07_A_01["Deal Owner updates fields: Estimate (Min.), Estimate Explanation, Estimate (Max.)"]:::airtableUpdate
+    --->S01_07_A_02["Deal Owner advances to stage: Estimate Sent"]:::airtableUpdate
 
-S01_07--->|Item is desirable|S01_07_A_01["Deal Owner updates fields: Estimate (Min.), Estimate Explanation, Estimate (Max.)"]:::airtableUpdate
---->S01_07_A_02["Deal Owner advances to stage: Estimate Sent"]:::airtableUpdate
+    S01_07--->|Item is undesirable|S01_07_B_01["Deal Owner updates fields: Rejection Reason"]:::airtableUpdate
+    --->S01_07_B_02["Deal Owner advances to stage: Rejected"]:::airtableUpdate
 
-S01_07--->|Item is undesirable|S01_07_B_01["Deal Owner updates fields: Rejection Reason"]:::airtableUpdate
---->S01_07_B_02["Deal Owner advances to stage: Rejected"]:::airtableUpdate
-
-S01_07--->|More information needed|S01_07_C_01["Deal Owner advances to stage: Information Requested"]:::airtableUpdate
-end
-subgraph S02["Information Requested"]
-S01_07_C_01--->S02_01["System sends: Information-Request Email"]:::message
---->S02_02["System confirms opt-in; sends: Information-Request Text"]:::message
---->S02_03["System waits: 1 day(s)"]:::wait
---->S02_04["Router"]:::router
+    S01_07--->|More information needed|S01_07_C_01["Deal Owner advances to stage: Information Requested"]:::airtableUpdate
+    end
+    subgraph S02["Information Requested"]
+    S01_07_C_01--->S02_01["System sends: Information-Request Email"]:::message
+    --->S02_02["System confirms opt-in; sends: Information-Request Text"]:::message
+    --->S02_03["System waits: 1 day(s)"]:::wait
+    --->S02_04["Router"]:::router
 
 
-S02_04--->|Customer responds|S02_04_B_01["Router"]:::router
+    S02_04--->|Customer responds|S02_04_B_01["Router"]:::router
 
-S02_04_B_01--->|Item is undesirable|S02_04_B_01_A_01["Deal Owner updates fields: Rejection Reason"]:::airtableUpdate
---->S02_04_B_01_A_02["Deal Owner advances to stage: Rejected"]:::airtableUpdate
+    S02_04_B_01--->|Item is undesirable|S02_04_B_01_A_01["Deal Owner updates fields: Rejection Reason"]:::airtableUpdate
+    --->S02_04_B_01_A_02["Deal Owner advances to stage: Rejected"]:::airtableUpdate
 
-S02_04_B_01--->|Discussion required|S02_04_B_01_B_01["Deal Owner advances to stage: Information Facilitation"]:::airtableUpdate
+    S02_04_B_01--->|Discussion required|S02_04_B_01_B_01["Deal Owner advances to stage: Information Facilitation"]:::airtableUpdate
 
-S02_04_B_01--->|Item is desirable|S02_04_B_01_C_01["Deal Owner updates fields: Estimate (Min.), Estimate (Max.), Estimate Explanation"]:::airtableUpdate
---->S02_04_B_01_C_02["Deal Owner advances to stage: Estimate Sent"]:::airtableUpdate
-end
-subgraph S04["Rejected"]
-S01_07_B_02 & S02_04_B_01_A_02--->S04_01["System sends: Rejection Email"]:::message
-end
-subgraph S05["Estimate Sent"]
-S01_07_A_02 & S02_04_B_01_C_02--->S05_01["System sends: Estimate Email"]:::message
---->S05_02["System confirms opt-in; sends: Estimate Text"]:::message
---->S05_03["System waits: 1 day(s)"]:::wait
---->S05_04["Router"]:::router
+    S02_04_B_01--->|Item is desirable|S02_04_B_01_C_01["Deal Owner updates fields: Estimate (Min.), Estimate (Max.), Estimate Explanation"]:::airtableUpdate
+    --->S02_04_B_01_C_02["Deal Owner advances to stage: Estimate Sent"]:::airtableUpdate
+    end
+    subgraph S04["Rejected"]
+    S01_07_B_02 & S02_04_B_01_A_02--->S04_01["System sends: Rejection Email"]:::message
+    end
+    subgraph S05["Estimate Sent"]
+    S01_07_A_02 & S02_04_B_01_C_02--->S05_01["System sends: Estimate Email"]:::message
+    --->S05_02["System confirms opt-in; sends: Estimate Text"]:::message
+    --->S05_03["System waits: 1 day(s)"]:::wait
+    --->S05_04["Router"]:::router
 
-S05_04--->|Customer responds|S05_04_A_01["Deal Owner advances to stage: Estimate & Shipping Discussion"]:::airtableUpdate
+    S05_04--->|Customer responds|S05_04_A_01["Deal Owner advances to stage: Estimate & Shipping Discussion"]:::airtableUpdate
 
-S05_04--->|No response|S05_04_B_01["System waits: 1 day(s)"]:::wait
---->S05_04_B_02["Router"]:::router
+    S05_04--->|No response|S05_04_B_01["System waits: 1 day(s)"]:::wait
+    --->S05_04_B_02["Router"]:::router
 
-S05_04_B_02--->|Customer responds|S05_04_B_02_A_01["Deal Owner advances to stage: Estimate & Shipping Discussion"]:::airtableUpdate
+    S05_04_B_02--->|Customer responds|S05_04_B_02_A_01["Deal Owner advances to stage: Estimate & Shipping Discussion"]:::airtableUpdate
 
-S05_04_B_02--->|No response|S05_04_B_02_B_01["System sends: Estimate Follow-Up Email #1"]:::message
---->S05_04_B_02_B_02["System confirms opt-in; sends: Estimate Follow-Up Text #1"]:::message
---->S05_04_B_02_B_03["System waits: 1 day(s)"]:::wait
---->S05_04_B_02_B_04["Router"]:::router
+    S05_04_B_02--->|No response|S05_04_B_02_B_01["System sends: Estimate Follow-Up Email #1"]:::message
+    --->S05_04_B_02_B_02["System confirms opt-in; sends: Estimate Follow-Up Text #1"]:::message
+    --->S05_04_B_02_B_03["System waits: 1 day(s)"]:::wait
+    --->S05_04_B_02_B_04["Router"]:::router
 
-S05_04_B_02_B_04--->|Customer responds|_B_02_B_04_A_01["Deal Owner advances to stage: Estimate & Shipping Discussion"]:::airtableUpdate
+    S05_04_B_02_B_04--->|Customer responds|_B_02_B_04_A_01["Deal Owner advances to stage: Estimate & Shipping Discussion"]:::airtableUpdate
 
-S05_04_B_02_B_04--->|No response|_B_02_B_04_B_01["System sends: Estimate Follow-Up Email #2"]:::message
---->_B_02_B_04_B_02["System confirms opt-in; sends: Estimate Follow-Up Text #2"]:::message
-end
-subgraph S06["Estimate & Shipping Discussion"]
-S05_04_A_01 & S05_04_B_02_A_01 & _B_02_B_04_A_01--->S06_01["Deal Owner communicates manually; loops in Christine at proper time"]:::manual
---->S06_02["Christine communicates manually; retrieves shipping address; sends materials"]:::manual
---->S06_03["Christine updates fields: Address"]:::airtableUpdate
---->S06_04["Christine advances to stage: Shipping Materials Provided"]:::airtableUpdate
-end
-subgraph S07["Shipping Materials Provided"]
-S06_04--->S07_01["System waits: 5 day(s)"]:::wait
---->S07_02["Router"]:::router
+    S05_04_B_02_B_04--->|No response|_B_02_B_04_B_01["System sends: Estimate Follow-Up Email #2"]:::message
+    --->_B_02_B_04_B_02["System confirms opt-in; sends: Estimate Follow-Up Text #2"]:::message
+    end
+    subgraph S06["Estimate & Shipping Discussion"]
+    S05_04_A_01 & S05_04_B_02_A_01 & _B_02_B_04_A_01--->S06_01["Deal Owner communicates manually; loops in Christine at proper time"]:::manual
+    --->S06_02["Christine communicates manually; retrieves shipping address; sends materials"]:::manual
+    --->S06_03["Christine updates fields: Address"]:::airtableUpdate
+    --->S06_04["Christine advances to stage: Shipping Materials Provided"]:::airtableUpdate
+    end
+    subgraph S07["Shipping Materials Provided"]
+    S06_04--->S07_01["System waits: 5 day(s)"]:::wait
+    --->S07_02["Router"]:::router
 
-S07_02--->|Item received|S07_02_A_01["Liliana advances to stage: Item Received"]:::airtableUpdate
+    S07_02--->|Item received|S07_02_A_01["Liliana advances to stage: Item Received"]:::airtableUpdate
 
-S07_02--->|Item not received|S07_02_B_01["System sends: Shipping Material Follow-Up Email #1"]:::message
---->S07_02_B_02["System confirms opt-in; sends: Shipping Material Follow-Up Text #1"]:::message
---->S07_02_B_03["System waits: 5 day(s)"]:::wait
---->S07_02_B_04["Router"]:::router
+    S07_02--->|Item not received|S07_02_B_01["System sends: Shipping Material Follow-Up Email #1"]:::message
+    --->S07_02_B_02["System confirms opt-in; sends: Shipping Material Follow-Up Text #1"]:::message
+    --->S07_02_B_03["System waits: 5 day(s)"]:::wait
+    --->S07_02_B_04["Router"]:::router
 
-S07_02_B_04--->|Item received|S07_02_B_04_A_01["Liliana advances to stage: Item Received"]:::airtableUpdate
+    S07_02_B_04--->|Item received|S07_02_B_04_A_01["Liliana advances to stage: Item Received"]:::airtableUpdate
 
-S07_02_B_04--->|Item not received|S07_02_B_04_B_01["System sends: Shipping Material Follow-Up Email #2"]:::message
---->S07_02_B_04_B_02["System confirms opt-in; sends: Shipping Material Follow-Up Text #2"]:::message
-end
-subgraph S08["Item Received"]
-S07_02_A_01 & S07_02_B_04_A_01--->S08_01["Liliana updates fields: Inspector"]:::airtableUpdate
---->S08_02["System sends: Item-Received Email"]:::message
---->S08_03["System confirms opt-in; sends: Inquiry-Received Text"]:::message
---->S08_04["Deal Owner updates fields: Offer"]:::airtableUpdate
---->S08_05["Deal Owner advances to stage: Formal Offer Sent"]:::airtableUpdate
-end
-subgraph S09["Formal Offer Sent"]
-S08_05--->S09_01["System sends: Formal Offer Email; Liliana is copied"]:::message
---->S09_02["System confirms opt-in; sends: Formal Offer Text"]:::message
---->S09_03["Deal Owner communicates manually; follows up as needed"]:::manual
---->S09_04["Router"]:::router
+    S07_02_B_04--->|Item not received|S07_02_B_04_B_01["System sends: Shipping Material Follow-Up Email #2"]:::message
+    --->S07_02_B_04_B_02["System confirms opt-in; sends: Shipping Material Follow-Up Text #2"]:::message
+    end
+    subgraph S08["Item Received"]
+    S07_02_A_01 & S07_02_B_04_A_01--->S08_01["Liliana updates fields: Inspector"]:::airtableUpdate
+    --->S08_02["System sends: Item-Received Email"]:::message
+    --->S08_03["System confirms opt-in; sends: Inquiry-Received Text"]:::message
+    --->S08_04["Deal Owner updates fields: Offer"]:::airtableUpdate
+    --->S08_05["Deal Owner advances to stage: Formal Offer Sent"]:::airtableUpdate
+    end
+    subgraph S09["Formal Offer Sent"]
+    S08_05--->S09_01["System sends: Formal Offer Email; Liliana is copied"]:::message
+    --->S09_02["System confirms opt-in; sends: Formal Offer Text"]:::message
+    --->S09_03["Deal Owner communicates manually; follows up as needed"]:::manual
+    --->S09_04["Router"]:::router
 
-S09_04--->|Offer accepted|S09_04_A_01["Deal Owner advances to stage: Offer Accepted"]:::airtableUpdate
+    S09_04--->|Offer accepted|S09_04_A_01["Deal Owner advances to stage: Offer Accepted"]:::airtableUpdate
 
-S09_04--->|Offer declined|S09_04_B_01["Deal Owner advances to stage: Coordinating Return"]:::airtableUpdate
-end
-subgraph S11["Coordinating Return"]
-S09_04_B_01--->S11_01["Liliana communicates manually; coordinates return"]:::manual
---->S11_02["Liliana advances to stage: Return Complete"]:::airtableUpdate
-end
-subgraph S13["Offer Accepted"]
-S09_04_A_01--->S13_01["Deal Owner updates fields: ID Photo"]:::airtableUpdate
---->S13_02["Liliana communicates manually; coordinates payment"]:::manual
---->S13_03["Liliana advances to stage: Acquisition Complete"]:::airtableUpdate
-end
-subgraph S14["Acquisition Complete"]
-S13_03--->S14_01["System waits: 6 day(s)"]:::wait
---->S14_02["System sends: Review-Request Email"]:::message
---->S14_03["System confirms opt-in; sends: Review-Request Text"]:::message
-end
+    S09_04--->|Offer declined|S09_04_B_01["Deal Owner advances to stage: Coordinating Return"]:::airtableUpdate
+    end
+    subgraph S11["Coordinating Return"]
+    S09_04_B_01--->S11_01["Liliana communicates manually; coordinates return"]:::manual
+    --->S11_02["Liliana advances to stage: Return Complete"]:::airtableUpdate
+    end
+    subgraph S13["Offer Accepted"]
+    S09_04_A_01--->S13_01["Deal Owner updates fields: ID Photo"]:::airtableUpdate
+    --->S13_02["Liliana communicates manually; coordinates payment"]:::manual
+    --->S13_03["Liliana advances to stage: Acquisition Complete"]:::airtableUpdate
+    end
+    subgraph S14["Acquisition Complete"]
+    S13_03--->S14_01["System waits: 6 day(s)"]:::wait
+    --->S14_02["System sends: Review-Request Email"]:::message
+    --->S14_03["System confirms opt-in; sends: Review-Request Text"]:::message
+    end
 
-classDef airtableUpdate fill:#81D4FA
-classDef manual fill:#F48FB1
-classDef message fill:#FFAB91
-classDef router fill:#B39DDB
-classDef trigger fill:#C5E1A5
-classDef wait fill:#FFF59D
+    classDef airtableUpdate fill:#81D4FA
+    classDef manual fill:#F48FB1
+    classDef message fill:#FFAB91
+    classDef router fill:#B39DDB
+    classDef trigger fill:#C5E1A5
+    classDef wait fill:#FFF59D
 
-        </pre>
+            </pre>
+
+        </div>
 
     </body>
 </html>
