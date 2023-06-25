@@ -5,6 +5,10 @@
 
         <style>
 
+            .container {
+                width: 23160px;
+            }
+
         </style>
 
         <script type="module">
@@ -23,7 +27,7 @@
         <div class="container">
             <pre class="mermaid">
 
-                flowchart TD
+                flowchart LR
                 subgraph S01["New Seller Inquiry"]
     S01_01["Customer submits inquiry"]:::trigger
     --->S01_02["System finds or creates item: Customers"]:::airtableUpdate
