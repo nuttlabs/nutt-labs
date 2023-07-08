@@ -32,6 +32,10 @@ h1 {
  * ------------------------------------ //
 */
 
+.block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-group__section-header:not(.no-border) {
+    boder-top: none;
+}
+
 /* 
  * ------------------------------------ \\
  * End Main Menu
