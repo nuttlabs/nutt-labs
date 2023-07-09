@@ -6,6 +6,7 @@
  * ------------------------------------ //
  * Typography
  * Main Menu
+ * Footer
  * ------------------------------------ \\
  * ------------------------------------ //
 */
@@ -16,8 +17,8 @@
  * ------------------------------------ //
 */
 
-h1 {
-    color: red;
+h1.notion-header__title {
+    font-weight: 600;
 }
 
 /* 
@@ -32,12 +33,61 @@ h1 {
  * ------------------------------------ //
 */
 
-.block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-group__section-header:not(.no-border) {
-    boder-top: none;
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-group__section-header:not(.no-border),
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-list {
+    border-top:none;
+}
+
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-group__section-header {
+    padding-bottom: 0;
+}
+
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-group__section.open:not(.board) {
+    margin-bottom: 0;
+}
+
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-pill {
+    background: none;
+    color: #787673;
+    opacity: .6;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    padding-left: 0;
+}
+
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-group__section:nth-of-type(2) .notion-collection-group__section-header {
+    padding-top: 0;
+}
+
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-property__title__icon-wrapper {
+    display: none;
 }
 
 /* 
  * ------------------------------------ \\
  * End Main Menu
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Footer
+ * ------------------------------------ //
+*/
+
+div.super-footer.stack {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.super-footer__logo span.super-footer__logo-text {
+    font-size: 13px!important;
+    font-weight: 300;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Footer
  * ------------------------------------ //
 */
