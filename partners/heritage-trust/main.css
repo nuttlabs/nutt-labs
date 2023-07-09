@@ -5,8 +5,10 @@
  * ------------------------------------ \\
  * ------------------------------------ //
  * Typography
+ * Page Header
  * Main Menu
- * Footer
+ * Sections
+ * Site Footer
  * ------------------------------------ \\
  * ------------------------------------ //
 */
@@ -29,6 +31,22 @@ h1.notion-header__title {
 
 /* 
  * ------------------------------------ \\
+ * Page Header
+ * ------------------------------------ //
+*/
+
+div.notion-header__cover.no-cover {
+    max-height: 50px;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Page Header
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
  * Main Menu
  * ------------------------------------ //
 */
@@ -44,6 +62,11 @@ h1.notion-header__title {
 
 #block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-group__section.open:not(.board) {
     margin-bottom: 0;
+}
+
+
+#block-6fa6c0d082254d338b135a23c7c95020 .notion-collection-list__item:hover {
+    background: none;
 }
 
 #block-6fa6c0d082254d338b135a23c7c95020 .notion-pill {
@@ -72,13 +95,30 @@ h1.notion-header__title {
 
 /* 
  * ------------------------------------ \\
- * Footer
+ * Sections
+ * ------------------------------------ //
+*/
+
+#block-180a74bd4d75427ebbaf38ed86989760 .notion-column:nth-of-type(2) {
+    text-align: right;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Sections
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Site Footer
  * ------------------------------------ //
 */
 
 div.super-footer.stack {
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-top: 50px;
 }
 
 .super-footer__logo span.super-footer__logo-text {
@@ -88,6 +128,6 @@ div.super-footer.stack {
 
 /* 
  * ------------------------------------ \\
- * End Footer
+ * End Site Footer
  * ------------------------------------ //
 */
