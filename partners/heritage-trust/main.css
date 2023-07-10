@@ -7,11 +7,17 @@
  * Typography
  * Page Header
  * Main Menu
- * Sections
+ * Guide Sections
+ * Notion Blocks
  * Site Footer
+ * Homepage
  * ------------------------------------ \\
  * ------------------------------------ //
 */
+
+:root {
+    --purple: #994497;    
+}
 
 /* 
  * ------------------------------------ \\
@@ -19,9 +25,6 @@
  * ------------------------------------ //
 */
 
-h1.notion-header__title {
-    font-weight: 600;
-}
 
 /* 
  * ------------------------------------ \\
@@ -95,7 +98,7 @@ div.notion-header__cover.no-cover {
 
 /* 
  * ------------------------------------ \\
- * Sections
+ * Guide Sections
  * ------------------------------------ //
 */
 
@@ -105,7 +108,35 @@ div.notion-header__cover.no-cover {
 
 /* 
  * ------------------------------------ \\
- * End Sections
+ * End Guide Sections
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Notion Blocks
+ * ------------------------------------ //
+*/
+
+.notion-callout {
+    padding: 22px 18px!important;
+    border:none!important;
+}
+
+.notion-callout__content > span:first-child {
+    display: block;
+    font-size: 1.25em;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.notion-callout.bg-gray-light {
+    background-color: #F0f0f0;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Notion Blocks
  * ------------------------------------ //
 */
 
@@ -129,5 +160,22 @@ div.super-footer.stack {
 /* 
  * ------------------------------------ \\
  * End Site Footer
+ * ------------------------------------ //
+*/
+
+/* 
+ * ------------------------------------ \\
+ * Homepage
+ * ------------------------------------ //
+*/
+
+#page-index .notion-header__content.max-width,
+#page-index .super-content.max-width {
+    max-width: 1100px;
+}
+
+/* 
+ * ------------------------------------ \\
+ * End Homepage
  * ------------------------------------ //
 */
