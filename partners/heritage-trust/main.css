@@ -122,6 +122,32 @@ div.notion-header__cover.no-cover {
  * ------------------------------------ //
 */
 
+/* 
+ * ------------------ \\
+ * Collections (Databases)
+ * ------------------ //
+*/
+
+.notion-collection-list__item {
+    cursor: none;
+}
+
+.notion-collection-list__item:hover {
+    background: none;
+}
+
+/* 
+ * ------------------ \\
+ * End Collections (Databases)
+ * ------------------ //
+*/
+
+/* 
+ * ------------------ \\
+ * Callouts
+ * ------------------ //
+*/
+
 .notion-root .notion-callout.border {
     padding: 22px 18px!important;
     border-color: var(--color-text-default)
@@ -142,6 +168,12 @@ div.notion-header__cover.no-cover {
 .notion-callout .notion-column {
     padding: 0;
 }
+
+/* 
+ * ------------------ \\
+ * End Callouts
+ * ------------------ //
+*/
 
 /* 
  * ------------------------------------ \\
