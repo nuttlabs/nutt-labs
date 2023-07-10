@@ -25,6 +25,10 @@
  * ------------------------------------ //
 */
 
+h1.notion-header__title {
+    margin-bottom: 36px;
+}
+
 
 /* 
  * ------------------------------------ \\
@@ -118,20 +122,25 @@ div.notion-header__cover.no-cover {
  * ------------------------------------ //
 */
 
-.notion-callout {
+.notion-root .notion-callout.border {
     padding: 22px 18px!important;
-    border:none!important;
+    border-color: var(--color-text-default)
+}
+
+.notion-callout__content > span,
+.notion-callout__content > ul {
+    color: var(--color-text-default);
 }
 
 .notion-callout__content > span:first-child {
     display: block;
-    font-size: 1.25em;
+    font-size: 1.35em;
     line-height: 1;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.notion-callout.bg-gray-light {
-    background-color: #F0f0f0;
+.notion-callout .notion-column {
+    padding: 0;
 }
 
 /* 
