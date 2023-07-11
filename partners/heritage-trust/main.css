@@ -106,6 +106,23 @@ div.notion-header__cover.no-cover {
  * ------------------------------------ //
 */
 
+/* Page properties */
+.notion-page__properties {
+    display: none;
+}
+
+/* Inputs list: Cursor */
+.parent-page__sections .notion-collection-list__item,
+.parent-page__sections .notion-collection-list__item a {
+    cursor: default;
+}
+
+/* Inputs list: Item border */
+.parent-page__sections .notion-collection-list__item span {
+    border-bottom: none!important;
+}
+
+/* Next-section link */
 #block-180a74bd4d75427ebbaf38ed86989760 .notion-column:nth-of-type(2) {
     text-align: right;
 }
@@ -128,12 +145,12 @@ div.notion-header__cover.no-cover {
  * ------------------ //
 */
 
-.notion-collection-list__item {
-    cursor: none;
+.notion-collection-list .notion-collection-list__item {
+    cursor: default;
 }
 
-.notion-collection-list__item:hover {
-    background: none;
+.notion-collection-list .notion-collection-list__item:hover {
+    background-color: transparent;
 }
 
 /* 
