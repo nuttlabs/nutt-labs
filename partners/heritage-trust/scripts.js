@@ -1,4 +1,6 @@
 
+console.log("Script v1");
+
 setInterval( updateNextSectionLink, 10000 );
 
 function updateNextSectionLink() {
