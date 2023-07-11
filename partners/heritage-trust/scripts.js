@@ -1,5 +1,5 @@
 
-letInterval( updateNextSectionLink, 10000 );
+setInterval( updateNextSectionLink, 10000 );
 
 function updateNextSectionLink() {
   let nextSectionPropertyLink = document.querySelector('.parent-page__sections .notion-page__properties a');
