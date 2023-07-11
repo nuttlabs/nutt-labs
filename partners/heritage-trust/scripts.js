@@ -1,5 +1,9 @@
 
-console.log("Script v1");
+console.log("Script v1.01");
+
+setInterval( () => {
+    console.clear();
+}, 1000);
 
 setInterval( updateNextSectionLink, 10000 );
 
