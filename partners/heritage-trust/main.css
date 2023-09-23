@@ -107,6 +107,16 @@ div.notion-header__cover.no-cover {
     display: none;
 }
 
+@media screen and (max-width: 680px) {
+
+    #block-6fa6c0d082254d338b135a23c7c95020 {
+        margin-top: 30px;
+        padding-top: 36px;
+        border-top: 1px solid #dcdad6;
+    }
+
+}
+
 /* 
  * ------------------------------------ \\
  * End Main Menu
