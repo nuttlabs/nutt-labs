@@ -118,7 +118,7 @@ div.notion-header__cover.no-cover {
 }
 
 /* Inputs list: Item border */
-.parent-page__sections .notion-collection-list__item span {
+.parent-page__index .notion-collection-list__item .notion-property__title {
     border-bottom: none!important;
 }
 
