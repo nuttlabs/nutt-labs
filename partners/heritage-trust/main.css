@@ -25,10 +25,23 @@
  * ------------------------------------ //
 */
 
-h1.notion-header__title {
-    margin-bottom: 36px;
+@media screen and (max-width: 767px) {
+
+    h1.notion-header__title {
+        font-size: 36px;
+        line-height: 1.2;
+        margin-bottom: 0;
+    }
+
 }
 
+@media screen and (min-width: 768px) {
+
+    h1.notion-header__title {
+        margin-bottom: 36px;
+    }
+
+}
 
 /* 
  * ------------------------------------ \\
@@ -147,10 +160,23 @@ div.notion-header__cover.no-cover {
 
 .notion-collection-list .notion-collection-list__item {
     cursor: default;
+    padding: 0;
 }
 
 .notion-collection-list .notion-collection-list__item:hover {
     background-color: transparent;
+}
+
+.notion-collection-list__item .notion-property__title {
+    margin-bottom: 4px;
+}
+
+@media screen and (max-width: 546px) {
+
+    .notion-collection-list .notion-collection-list__item {
+        border-bottom: none;
+    }
+
 }
 
 /* 
@@ -158,6 +184,24 @@ div.notion-header__cover.no-cover {
  * End Collections (Databases)
  * ------------------ //
 */
+
+/* 
+ * ------------------ \\
+ * Text
+ * ------------------ //
+*/
+
+/* Paragraphs */
+p.notion-text__content {
+    padding: 6px 0;
+}
+
+/* 
+ * ------------------ \\
+ * End Text
+ * ------------------ //
+*/
+
 
 /* 
  * ------------------ \\
