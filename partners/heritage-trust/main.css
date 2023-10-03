@@ -146,6 +146,11 @@ div.notion-header__cover.no-cover {
 }
 
 /* Next-section link */
+.parent-page__index article > .notion-column-list:last-child .notion-column {
+    width: 50%!important;
+}
+
+/* Next-section link */
 .parent-page__index article > .notion-column-list:last-child .notion-column:nth-of-type(2) {
     text-align: right;
 }
