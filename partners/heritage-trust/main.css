@@ -148,6 +148,7 @@ div.notion-header__cover.no-cover {
 /* Next-section link */
 .parent-page__index article > .notion-column-list:last-child .notion-column {
     width: 50%!important;
+    margin-inline-start: 0!important;
 }
 
 /* Next-section link */
