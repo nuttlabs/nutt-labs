@@ -1,0 +1,16 @@
+{
+  "name": "nutt-labs-website",
+  "version": "1.0.0",
+  "description": "Nutt Labs",
+  "main": "index.html",
+  "scripts": {
+    "test": "npx wrangler pages dev ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nuttlabs/nutt-labs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.83.0"
+  }
+}
