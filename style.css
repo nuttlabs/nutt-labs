@@ -3,9 +3,10 @@
 *** -------------------------------- */
 
 :root {
-    --gradient-neon: linear-gradient(20deg, #29C7C1 0%, #7EEAC3 40%, #B3F7B5 60%, #97F3BF 80%);
-    --color-lightBorder: #EEEEF3;
-    --color-neon: #CBFF00;
+    --color_tlnx_bg: #FEFDF5;
+    --color_tlnx_green: #00e2a9;
+    --color_tlnx_green--light: #D3FFA5;
+    --gradient-greens: linear-gradient(25deg, var(--color_tlnx_green), var(--color_tlnx_green--light) 70%);
 }
 
 /** -------------------------------- \\
@@ -100,9 +101,9 @@ section {
 
 a.button {
     border-radius: 50px;
-    background-color: var(--color-neon);
+    background: var(--color_tlnx_green);
     text-decoration: none;
-    padding: 18px 32px;
+    padding: 18px 34px;
     line-height: 1;
 }
 
@@ -224,6 +225,7 @@ figure {
 
 #hero a.button {
     margin-left: auto;
+    background: var(--gradient-greens);
 }
 
 /** -------------------------------- \\
@@ -231,7 +233,7 @@ figure {
 *** -------------------------------- */
 
 #insights {
-    background-color: #FAFAFB;
+    background-color: var(--color_tlnx_bg);
 }
 
  #insights .container {
@@ -247,10 +249,8 @@ figure {
 }
 
 #insights .insights__title {
-    border-color: var(--color-lightBorder);
-    border-width: 1px;
-    border-style: solid solid none solid;
     width: 100%;
+    border: 1px solid;
 }
 
 @media screen and (max-width: 768px) {
@@ -273,12 +273,13 @@ figure {
 }
 
 #insights ul {
-    border: 1px solid var(--color-lightBorder);
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
     width: 100%;
+    border-width: 1px;
+    border-style: none solid solid solid;
 }
 
 @media screen and (max-width: 768px) {
@@ -292,24 +293,26 @@ figure {
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
+
  }
 
+  #insights ul li:not(:last-of-type) {
+    border-right: 1px solid;
+  }
+
 @media screen and (max-width: 768px) {
+
+    #insights ul,
+    #insights ul li,
+    #insights ul li:not(:last-of-type) {
+        border: none;
+    }
+
     #insights ul li {
         padding: 0;
         height: 100px;
     }
-}
 
-#insights ul li:not(:last-of-type) {
-    border-right: 1px solid var(--color-lightBorder);
-}
-
-@media screen and (max-width: 768px) {
-    #insights ul li:not(:last-of-type) {
-        border-right: none;
-        border-bottom: 1px solid var(--color-lightBorder);
-    }
 }
 
 #insights ul li img {
@@ -405,7 +408,7 @@ figure {
 }
 
 #clients li:first-of-type {
-    color: var(--color-neon);
+    color: var(--color_tlnx_green);
 }
 
 @media screen and (max-width: 768px) {
@@ -418,7 +421,7 @@ figure {
 }
 
 #clients li:after {
-    content: '/';
+    content: '//';
     font-weight: 200;
     margin: 0 10px;
 }
@@ -426,7 +429,6 @@ figure {
 @media screen and (max-width: 768px) {
     #clients li:after {
         margin: 0 0 0 8px;
-        content: '//';
     }
 }
 
@@ -436,11 +438,11 @@ figure {
 *** -------------------------------- */
 
 #cta {
-    background-color: var(--color-neon);
+    background-color: var(--color_tlnx_bg);
 }
 
 #cta .container {
-    gap: 40px;
+    gap: 44px;
     text-align:center;
     min-height: 80vh;
 }
@@ -474,11 +476,6 @@ figure {
     letter-spacing: -1px;
 }
 
-#cta .button {
-    background-color: black;
-    margin-top: 20px;
-}
-
-#cta .button span {
-    color: white;
+#cta a.button {
+    margin-top: 14px;
 }
