@@ -43,7 +43,8 @@ h1 {
 
 @media screen and (max-width: 768px) {
     h1 {
-        font-size: 30px;
+        font-size: 32px;
+        line-height: 120%;
     }
 }
 
@@ -123,7 +124,7 @@ a.button span {
 
 @media screen and (max-width: 768px) {
     a.button span {
-        font-size: 16px;
+        font-size: 18px;
     }
 }
 
@@ -209,7 +210,7 @@ figure {
 
 #hero p {
     font-size: 34px;
-    margin: 0 0 50px;
+    margin: 0 0 48px;
     opacity: .9;
 }
 
@@ -266,7 +267,7 @@ figure {
 #insights .insights__title img {
     display: block;
     margin: 34px auto 50px;
-    width: 42%;
+    width: 44%;
     max-width: 170px;
 }
 
@@ -314,7 +315,7 @@ figure {
 
     #insights ul li {
         padding: 0;
-        height: 100px;
+        height: 80px;
     }
 
 }
@@ -352,15 +353,15 @@ figure {
 @media screen and (max-width: 768px) {
     
     #youTube img {
-        width: 110px
+        width: 120px
     }
 
     #proNex img {
-        width: 220px;
+        width: 250px;
     }
 
     #notionVip img {
-        width: 70px
+        width: 74px
     }
     
 }
@@ -457,12 +458,22 @@ figure {
     }
 }
 
+@media screen and (max-width: 768px) {
+    #cta .container {
+        text-align: left;
+        align-items: flex-start;
+        gap: 34px;
+    }
+}
+
+
 .cta__background {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    z-index: -1;
 }
 
 .cta__background img {
@@ -473,7 +484,13 @@ figure {
 
 .cta__logo img {
     width: 46%;
-    max-width: 168px;
+    max-width: 200px;
+}
+
+@media screen and (max-width: 768px) {
+    .cta__logo {
+        justify-content: left;
+    }
 }
 
 #cta h1 {
@@ -481,5 +498,5 @@ figure {
 }
 
 #cta a.button {
-    margin-top: 14px;
+    margin-top: 16px;
 }
