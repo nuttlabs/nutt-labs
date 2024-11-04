@@ -143,19 +143,23 @@ figure {
  * Section: Hero
 *** -------------------------------- */
 
- .hero__background {
+ .hero__background,
+ .hero__background img,
+ .hero__background video {
     margin: 0;
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
     height: 100%;
     width: 100%;
  }
+ 
+ .hero__background { 
+    z-index: -1;
+ }
 
- #hero video {
-    width: 100%;
-    height: 100%;
+ .hero__background video,
+ .hero__background img {
     object-fit: cover;
     filter: brightness(64%);
  }
