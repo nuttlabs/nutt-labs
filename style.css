@@ -210,6 +210,7 @@ figure {
 
 #hero h1 strong {
     color: rgba(255,255,255,1);
+    font-weight: 700;
 }
 
 #hero p {
