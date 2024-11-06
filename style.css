@@ -283,7 +283,7 @@ figure {
 
 @media screen and (max-width: 768px) {
  #insights .insights__title img {
-     margin: 0 auto 26px;
+     margin: 0 auto 24px;
  }   
 }
 
@@ -324,7 +324,7 @@ figure {
     }
 
     #insights ul li {
-        padding: 18px 0;
+        padding: 16px 0;
     }
 
 }
@@ -373,7 +373,6 @@ figure {
         width: 74px;
         position: relative;
         left: 12px;
-        bottom: 2px;
     }
     
 }
