@@ -437,7 +437,7 @@ figure {
 }
 
 #clients li:after {
-    content: '\\';
+    content: '//';
     font-weight: 200;
     margin: 0 10px;
 }
@@ -445,6 +445,7 @@ figure {
 @media screen and (max-width: 768px) {
     #clients li:after {
         margin: 0 0 0 8px;
+        content: '\\\\'
     }
 }
 
