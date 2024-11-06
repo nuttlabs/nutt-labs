@@ -445,7 +445,6 @@ figure {
 @media screen and (max-width: 768px) {
     #clients li:after {
         margin: 0 0 0 8px;
-        content: '\\\\'
     }
 }
 
@@ -473,8 +472,10 @@ figure {
 @media screen and (max-width: 768px) {
     #cta .container {
         text-align: left;
+        justify-content: flex-start;
         align-items: flex-start;
         gap: 34px;
+        padding-top: 100px;
     }
 }
 
