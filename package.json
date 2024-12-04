@@ -2,7 +2,7 @@
   "name": "nutt-labs-website",
   "version": "1.0.0",
   "description": "Nutt Labs",
-  "main": "index.html",
+  "main": "public/index.html",
   "scripts": {
     "test": "npx wrangler pages dev ."
   },
