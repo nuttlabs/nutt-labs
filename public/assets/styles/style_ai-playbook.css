@@ -15,14 +15,14 @@
     font-family: 'PP Formula';
     font-weight: 500;
     font-style: normal;
-    src: url('assets/fonts/PPFormula-Medium.otf');
+    src: url('/assets/fonts/PPFormula-Medium.otf');
 }
 
 @font-face {
     font-family: 'PP Formula';
     font-weight: 800;
     font-style: normal;
-    src: url('assets/fonts/PPFormula-Extrabold.otf');
+    src: url('/assets/fonts/PPFormula-Extrabold.otf');
 }
 
 /* -------------------------------------- \\
