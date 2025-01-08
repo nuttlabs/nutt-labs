@@ -1,0 +1,493 @@
+/* -------------------------------------- \\
+ * Fonts
+ * Variables
+ * Typography
+ * High-Level Infrastructure
+ * Media
+ * Scection: Hero
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Fonts
+** --------------------------------------- */
+
+@font-face {
+    font-family: 'PP Formula';
+    font-weight: 400 500;
+    font-style: normal;
+    src: url('assets/fonts/PPFormula-Medium.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'PP Formula';
+    font-weight: 700 800;
+    font-style: normal;
+    src: url('assets/fonts/PPFormula-Extrabold.otf') format('otf');
+}
+
+/* -------------------------------------- \\
+ * End Fonts
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Variables
+** --------------------------------------- */
+
+:root {
+    --color_eggshell: #FEFDF5;
+    --color_borders_white: rgba(254, 253, 245,.3);
+    --color_green--dark: #00E2A9;
+    --color_green--light: #D3FFA5;
+}
+
+/* -------------------------------------- \\
+ * End Variables
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Typography
+** --------------------------------------- */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #000000;
+    font-size: 18px;
+    background-color: var(--color_eggshell);
+}
+
+h1, h2, h3, p, ul, ol, li {
+    margin-top: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'PP Formula';
+    font-weight: 800;
+}
+
+h1 {
+    line-height: 1.1;
+    font-size: 78px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+h3 {
+    font-size: 32px;
+    line-height: 1.5;
+}
+
+p {
+    line-height: 148%;
+}
+
+p a {
+    color: #000000;
+    text-decoration: none;
+    border-bottom: 2px solid var(--color_green--dark);
+}
+
+@media screen and (max-width: 767px) {
+
+    h1 {
+        font-size: 40px;
+        margin-bottom: 22px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 23px;
+        line-height: 1.6;
+    }
+    
+}
+
+/* -------------------------------------- \\
+ * End Typography
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * High-Level Infrastructure
+** --------------------------------------- */
+
+body {
+    max-width: 1470px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+section {
+    position: relative;
+}
+
+section > .container {
+    position: relative;
+    width: 82%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 140px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section > .container > *:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+
+    section > .container {
+        padding: 74px 0;
+    }
+
+}
+
+/* -------------------------------------- \\
+ * End High-Level Infrastructure
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Media
+** --------------------------------------- */
+
+
+figure {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+img, svg, video {
+    max-width: 100%;
+}
+
+.backgroundMedia,
+.backgroundMedia__backgroundVideo,
+.backgroundMedia__backgroundPhoto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* -------------------------------------- \\
+ * End Media
+** --------------------------------------- */
+
+
+/* -------------------------------------- \\
+ * Form Elements
+** --------------------------------------- */
+
+a.button {
+    text-decoration: none;
+    color: black;
+    background-color: var(--color_green--dark);
+    font-weight: 700;
+    line-height: 1;
+    padding: 19px 30px 19px 32px;
+    border-radius: 100px;
+    font-size: .96em;
+}
+
+a.button,
+.button__arrow svg path {
+    transition: all .3s;
+}
+
+a.button .button__arrow {
+    display: inline-block;
+    margin-left: 10px;
+    width: 26px;
+    position: relative;
+    top: .8px
+}
+
+a.button:hover {
+    transform: scale(1.1);
+    border-radius: 100px;
+}
+
+/* -------------------------------------- \\
+ * End Form Elements
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Header
+** --------------------------------------- */
+
+header {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 26px;
+}
+
+.header__logo img {
+    width: 40%;
+    max-width: 140px;
+}
+
+/* -------------------------------------- \\
+ * End Header
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Section: Hero
+** --------------------------------------- */
+
+#hero {
+    color: var(--color_eggshell);
+    text-align: center;
+}
+
+#hero strong {
+    font-weight: inherit;
+    color: var(--color_green--dark);
+}
+
+#hero > .container {
+    padding: 166px 0 210px;
+}
+
+figure.hero__icon {
+    margin-bottom: 36px;
+}
+
+.hero__icon img {
+    width: 17%;
+    max-width: 75px;
+}
+
+#hero h1 {
+    margin-bottom: 26px;
+}
+
+@media screen and (max-width: 767px) {
+    
+    #hero > .container {
+        padding-top: 120px;
+        padding-bottom: 130px;
+    }
+
+    figure.hero__icon {
+        margin-bottom: 28px;
+    }
+
+    #hero h1 {
+        margin-bottom: 20px;
+    }
+    
+}
+
+/* -------------------------------------- \\
+ * End Section: Hero
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Section: Pillars
+** --------------------------------------- */
+
+#pillars {
+    background-color: #000;
+    color: var(--color_eggshell);
+}
+
+.pillar {
+    width: 100%;
+    border-top-style: solid;
+    border-color: var(--color_borders_white);
+    padding: 39px 0 36px;
+    cursor: pointer;
+}
+
+.pillar:last-of-type {
+    border-bottom-style: solid;
+}
+
+.pillar__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pillar__header h2 {
+    margin: 0;
+    position: relative;
+    top: 1px
+}
+
+.pillar__number {
+    color: var(--color_green--dark);
+}
+
+.pillar__dash {
+    color: var(--color_borders_white);
+    margin: 0 4px;
+}
+
+.pillar__arrow {
+    width: 8%;
+    max-width: 36px;
+    transition: all .8s ease-out;
+}
+
+.pillar[expanded] .pillar__arrow {
+    transform: rotate(90deg);
+}
+
+.pillar__content {
+    overflow: hidden;
+    transition: all .8s ease-out;
+    max-height: 0;
+}
+
+.pillar[expanded] .pillar__content {
+    max-height: 400px;
+}
+
+.pillar__content p:first-child {
+    margin-top: 22px;
+}
+
+.pillar__content p:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+
+    .pillar__header {
+        align-items: flex-end;
+    }
+    
+    .pillar__mainTitle {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .pillar__arrow {
+        position: relative;
+    }
+
+}
+
+/* -------------------------------------- \\
+ * End Section: Pillars
+** --------------------------------------- */
+
+/* -------------------------------------- \\
+ * Section: Coach Nutt
+** --------------------------------------- */
+
+#coachNutt > .container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 60px;
+    grid-row-gap: 40px;
+    align-items: start;
+}
+
+@media screen and (max-width: 767px) {
+
+    #coachNutt > .container {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    #coachNutt p:last-of-type {
+        margin-bottom: 0;
+    }
+
+}
+
+.coachNutt__headshot {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.coachNutt__headshot img {
+    border-radius: 10px;
+    aspect-ratio: 99 / 100;
+    object-fit: cover;
+}
+
+.coachNutt__mainContent {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.coachNutt__mainContent strong a {
+    border: none;
+}
+
+.ivanQuote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    margin: 50px 40px 50px 0;
+    padding-right: 40px;
+    border-right: 1px solid var(--color_green--dark);
+    border-image: linear-gradient(var(--color_green--dark), var(--color_green--light)) 1;
+}
+
+.ivanQuote__quote {
+    font-family: 'IBM Plex Serif';
+    font-style: italic;
+    font-size: 22px;
+    text-align: right;
+}
+
+.ivanQuote__ivanInfo {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.ivanQuote__ivanInfo img {
+    width: 44px;
+}
+
+.ivanQuote__ivanInfo p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.ivanQuote__ivanInfo a {
+    text-decoration: underline;
+    border: none;
+}
+
+.coachNutt__button {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: end;
+}
+
+.coachNutt__button a {
+    display: block;
+}
+
+/* -------------------------------------- \\
+ * End Section: Coach Nutt
+** --------------------------------------- */
