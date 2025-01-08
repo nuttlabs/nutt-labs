@@ -360,7 +360,7 @@ figure.hero__icon {
 .pillar__arrow {
     width: 8%;
     max-width: 36px;
-    transition: all .8s ease-out;
+    transition: all .4s ease-out;
 }
 
 .pillar[expanded] .pillar__arrow {
