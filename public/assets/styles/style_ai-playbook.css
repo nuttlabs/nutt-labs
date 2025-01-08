@@ -189,6 +189,7 @@ img, svg, video {
 
 .backgroundMedia__backgroundVideo,
 .backgroundMedia__backgroundPhoto {
+    max-width: calc(100% + 10px);
     width: calc(100% + 10px);
     height: calc(100% + 10px);
     top: -5px;
