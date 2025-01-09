@@ -361,21 +361,14 @@ figure.hero__icon {
 .pillar__arrow {
     width: 8%;
     max-width: 36px;
-    transition: all .5s ease-in-out;
-}
-
-.pillar[expanded] .pillar__arrow {
-    transform: rotate(90deg);
+    transition: all .5s ease-out;
 }
 
 .pillar__content {
     overflow: hidden;
-    transition: all .5s ease-out;
-    max-height: 0;
-}
-
-.pillar[expanded] .pillar__content {
-    max-height: 400px;
+    transition: height .5s ease-out;
+    position: absolute;
+    opacity: 0;
 }
 
 .pillar__content p:first-child {
