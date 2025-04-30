@@ -11,6 +11,6 @@
     "url": "https://github.com/nuttlabs/nutt-labs"
   },
   "devDependencies": {
-    "wrangler": "^3.83.0"
+    "wrangler": "^4.14.0"
   }
 }
